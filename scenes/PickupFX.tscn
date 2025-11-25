@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c40fw6vd4i1f8"]
+
+[ext_resource type="Script" uid="uid://dgq5l3ky4lurp" path="res://scenes/PickupFX.gd" id="1_37nqu"]
+[ext_resource type="AudioStream" uid="uid://0oe2b572sdr2" path="res://assets/sfx/coin-257878.mp3" id="2_mrgch"]
+
+[node name="PickupFX" type="Node2D"]
+script = ExtResource("1_37nqu")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_mrgch")
+volume_db = 2.0
+
+[node name="Sparkles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 25
+lifetime = 0.6
+one_shot = true
+speed_scale = 1.2
+spread = 180.0
+gravity = Vector2(0, 400)
+initial_velocity_min = 175.0
+initial_velocity_max = 185.0

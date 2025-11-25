@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8eqtecuedgy2"]
+
+[ext_resource type="Script" uid="uid://dyyide244i1ks" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bc4rqv0867n47" path="res://assets/Main characters/drivin_right-removebg-preview (1).png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://d1vd8clr3yjjs" path="res://assets/Main characters/drivin_down-removebg-preview.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bln5d0bjdx8nj" path="res://assets/Main characters/drivin_up-removebg-preview.png" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://fey18agiswpj" path="res://assets/Main characters/Driving left.png" id="5_qlg0r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
+radius = 55.0
+height = 116.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(23.433285, 17.607662)
+scale = Vector2(0.38420495, 0.40878597)
+texture = ExtResource("2_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 34)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qhqgy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(4.9999847, 32)
+scale = Vector2(0.35845584, 0.34150326)
+texture = ExtResource("3_qhqgy")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(6.9999695, 27)
+scale = Vector2(0.3324142, 0.34007353)
+texture = ExtResource("4_dqkch")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(-16, 17.000002)
+scale = Vector2(0.3745915, 0.40379903)
+texture = ExtResource("5_qlg0r")

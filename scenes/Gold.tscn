@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://x1id8172rlrw"]
+
+[ext_resource type="Script" uid="uid://c8i02rf2k4rj0" path="res://scenes/gold.gd" id="1_i7nbl"]
+[ext_resource type="Texture2D" uid="uid://cbvgvxliw1lbs" path="res://assets/items/Rock-1.png" id="2_hbtti"]
+[ext_resource type="Texture2D" uid="uid://cciw8h17dyxs0" path="res://assets/items/Rock-2.png" id="3_8t8x4"]
+[ext_resource type="Texture2D" uid="uid://m6erfbvp56sx" path="res://assets/items/Rock-3.png" id="4_wlkti"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5npi0"]
+radius = 14.0
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_i7nbl")
+textures = Array[Texture2D]([ExtResource("2_hbtti"), ExtResource("3_8t8x4"), ExtResource("4_wlkti")])
+target_px = 67.0
+collision_ratio = 0.5
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5npi0")

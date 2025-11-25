@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://ev3ekf7hclqw"]
+
+[ext_resource type="Shader" uid="uid://cpff8qsiyx50x" path="res://Shaders/blur_bg.gdshader" id="1_0ykhv"]
+[ext_resource type="Script" uid="uid://vo4mvnbmnhrc" path="res://scenes/MainMenu.gd" id="1_l72w3"]
+[ext_resource type="Texture2D" uid="uid://dynlwvmcl8y64" path="res://assets/ui/Logo.png" id="1_ow34m"]
+[ext_resource type="Texture2D" uid="uid://1u3h8etktj6p" path="res://assets/backgrounds/desert_bg.png" id="2_2wh52"]
+[ext_resource type="Texture2D" uid="uid://da6u4nufmt855" path="res://assets/ui/Start.png" id="2_l72w3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_826wr"]
+shader = ExtResource("1_0ykhv")
+shader_parameter/radius = 6.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l72w3")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 5.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2wh52")
+expand_mode = 1
+
+[node name="BlurRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_826wr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_right = 6.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -395.5
+offset_right = 340.0
+offset_bottom = 395.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="Logo" type="TextureRect" parent="Center"]
+layout_mode = 2
+texture = ExtResource("1_ow34m")
+stretch_mode = 5
+
+[node name="StartBtn" type="TextureButton" parent="Center"]
+layout_mode = 2
+texture_normal = ExtResource("2_l72w3")

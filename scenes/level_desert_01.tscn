@@ -1,0 +1,245 @@
+[gd_scene load_steps=24 format=3 uid="uid://t5vmwky6fimv"]
+
+[ext_resource type="Texture2D" uid="uid://1u3h8etktj6p" path="res://assets/backgrounds/desert_bg.png" id="1_471bp"]
+[ext_resource type="Script" uid="uid://fa26tnkabagt" path="res://scenes/level_desert_01.gd" id="1_qi5qd"]
+[ext_resource type="PackedScene" uid="uid://b8eqtecuedgy2" path="res://scenes/player.tscn" id="2_n5dgd"]
+[ext_resource type="Script" uid="uid://c6eboo6ujmmrt" path="res://assets/ui/HeartsHUD.gd" id="4_he8ja"]
+[ext_resource type="Texture2D" uid="uid://cpljg25u3pt36" path="res://assets/ui/Heart.png" id="5_jpjf7"]
+[ext_resource type="Texture2D" uid="uid://d16k433g25b0l" path="res://assets/ui/You_Won.png" id="6_vtcl3"]
+[ext_resource type="Texture2D" uid="uid://biq3521gqhe4g" path="res://assets/ui/Play_Again.png" id="7_f82n6"]
+[ext_resource type="Texture2D" uid="uid://dwv3xgcjy8ack" path="res://assets/ui/GAME_OVER.png" id="8_57o1u"]
+[ext_resource type="Texture2D" uid="uid://dopymxiu2h3oa" path="res://assets/ui/Retry.png" id="9_i7126"]
+[ext_resource type="Shader" uid="uid://cpff8qsiyx50x" path="res://Shaders/blur_bg.gdshader" id="10_5cea5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_471bp"]
+size = Vector2(1280, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5dgd"]
+size = Vector2(1280, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi5qd"]
+size = Vector2(111, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfpjh"]
+size = Vector2(64, 720)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_471bp"]
+radius = 14.0
+height = 87.92
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5dgd"]
+radius = 13.0
+height = 110.86
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi5qd"]
+radius = 11.0
+height = 100.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wfpjh"]
+radius = 18.0
+height = 117.51
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_he8ja"]
+radius = 24.0
+height = 114.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jpjf7"]
+radius = 55.0
+height = 116.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xselm"]
+radius = 43.0
+height = 112.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vcpgf"]
+radius = 20.0
+height = 114.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qrq5o"]
+shader = ExtResource("10_5cea5")
+shader_parameter/radius = 6.0
+
+[node name="Level_Desert_01" type="Node2D"]
+script = ExtResource("1_qi5qd")
+metadata/_edit_horizontal_guides_ = [125.0, -218.0]
+metadata/_edit_vertical_guides_ = [110.0]
+
+[node name="BG_Desert" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(-1, 0.99999976)
+scale = Vector2(0.8326823, 0.7031251)
+texture = ExtResource("1_471bp")
+centered = false
+
+[node name="WorldBounds" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Top" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(640, 15.5)
+shape = SubResource("RectangleShape2D_471bp")
+
+[node name="Bottom" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(640, 716)
+shape = SubResource("RectangleShape2D_n5dgd")
+
+[node name="Right" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(1224.5, 360)
+shape = SubResource("RectangleShape2D_qi5qd")
+
+[node name="Left" type="CollisionShape2D" parent="WorldBounds"]
+position = Vector2(32, 360)
+shape = SubResource("RectangleShape2D_wfpjh")
+
+[node name="Obstacles" type="StaticBody2D" parent="."]
+position = Vector2(-1, 4)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(81, 72)
+shape = SubResource("CapsuleShape2D_471bp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(580, 338)
+shape = SubResource("CapsuleShape2D_n5dgd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(745, 206)
+shape = SubResource("CapsuleShape2D_qi5qd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(1169, 167)
+shape = SubResource("CapsuleShape2D_wfpjh")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(355, 515)
+shape = SubResource("CapsuleShape2D_he8ja")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(1163, 362)
+shape = SubResource("CapsuleShape2D_jpjf7")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(140, 591)
+shape = SubResource("CapsuleShape2D_xselm")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(1146, 618)
+shape = SubResource("CapsuleShape2D_vcpgf")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_n5dgd")]
+position = Vector2(821, 407)
+
+[node name="UI_Layer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="UI_Layer"]
+custom_minimum_size = Vector2(16, 16)
+offset_right = 71.0
+offset_bottom = 23.0
+text = "Score: 0"
+
+[node name="Hearts" type="HBoxContainer" parent="UI_Layer"]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -60.0
+offset_right = 210.0
+offset_bottom = -1.0
+grow_vertical = 0
+theme_override_constants/separation = 7
+script = ExtResource("4_he8ja")
+heart_texture = ExtResource("5_jpjf7")
+
+[node name="TextureRect" type="TextureRect" parent="UI_Layer/Hearts"]
+layout_mode = 2
+texture = ExtResource("5_jpjf7")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="UI_Layer/Hearts"]
+layout_mode = 2
+texture = ExtResource("5_jpjf7")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="UI_Layer/Hearts"]
+layout_mode = 2
+texture = ExtResource("5_jpjf7")
+expand_mode = 2
+
+[node name="BlurRect" type="ColorRect" parent="UI_Layer"]
+visible = false
+material = SubResource("ShaderMaterial_qrq5o")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinOverlay" type="Control" parent="UI_Layer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="TextureRect" parent="UI_Layer/WinOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -306.0
+offset_right = 306.0
+offset_bottom = 408.0
+grow_horizontal = 2
+texture = ExtResource("6_vtcl3")
+stretch_mode = 5
+
+[node name="PlayAgainBtn" type="TextureButton" parent="UI_Layer/WinOverlay"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -408.0
+offset_right = 306.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("7_f82n6")
+
+[node name="GameOverOverlay" type="Control" parent="UI_Layer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="TextureRect" parent="UI_Layer/GameOverOverlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -306.0
+offset_right = 306.0
+offset_bottom = 408.0
+grow_horizontal = 2
+texture = ExtResource("8_57o1u")
+
+[node name="RetryBtn" type="TextureButton" parent="UI_Layer/GameOverOverlay"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -306.0
+offset_top = -408.0
+offset_right = 306.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("9_i7126")
